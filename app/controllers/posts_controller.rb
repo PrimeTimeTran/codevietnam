@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update_attributes(title: params[:title], body: params[:body])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
